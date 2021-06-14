@@ -15,6 +15,9 @@ class CreateTurmaTable extends Migration
     {
         Schema::create('turma', function (Blueprint $table) {
             $table->id();
+            $table->integer('cod_aluno');
+            $table->integer('cod_professor');
+            $table->float('carga_horaria');
             $table->timestamps();
         });
     }

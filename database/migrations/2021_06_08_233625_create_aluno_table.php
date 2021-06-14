@@ -15,6 +15,8 @@ class CreateAlunoTable extends Migration
     {
         Schema::create('aluno', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
