@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\aluno;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -63,8 +64,8 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
-        return User::create([
+    { 
+       $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -72,5 +73,12 @@ class RegisterController extends Controller
             'image' => null,
             'type_user'=> 0
         ]);
+
+        aluno::create([
+            'name' => $data['name'],
+            'email'=> $data['email'],
+        ]);
+
+        return $user;
     }
 }

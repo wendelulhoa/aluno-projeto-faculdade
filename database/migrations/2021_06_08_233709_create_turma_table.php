@@ -17,6 +17,7 @@ class CreateTurmaTable extends Migration
             $table->id();
             $table->integer('cod_aluno');
             $table->integer('cod_professor');
+            $table->integer('cod_disciplina');
             $table->float('carga_horaria');
             $table->timestamps();
         });

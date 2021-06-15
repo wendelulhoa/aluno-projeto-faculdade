@@ -3,14 +3,14 @@
     <div class="container-fluid">
         <div class="d-flex">
             <a class="header-brand" href="{{ url('/') }}">
-                <img src="{{ mix('images/logo.png') }}" class="header-brand-img main-logo" alt="IndoUi logo">
+                <img src="{{ mix('images/logo.png') }}" class="header-brand-img main-logo" alt="logo">
             </a><!-- logo-->
             <div class="app-sidebar__toggle" data-toggle="sidebar">
                 <a class="open-toggle"  href="#"><i class="fe fe-align-left"></i></a>
                 <a class="close-toggle"  href="#"><i class="fe fe-x"></i></a>
             </div>
             <div class="d-flex order-lg-2 ml-auto header-right">
-                <div class="d-md-flex header-search" id="bs-example-navbar-collapse-1">
+                {{-- <div class="d-md-flex header-search" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form" action="" method="GET" id="form-search-mod" role="search">
                         <div class="input-group ">
                             <input type="text" id="param" name="param" class="form-control" placeholder="Search...">
@@ -24,19 +24,21 @@
                             </span>
                         </div>
                     </form>
-                </div><!-- Search -->
+                </div><!-- Search --> --}}
                 @guest
                     
                 @else
                     <div class="dropdown d-md-flex header-message">
                         <a class="nav-link icon" id="total-notifications" data-toggle="dropdown">
-                            
+                            <i class="far fa-bell"></i>
+                            <span class="nav-unread badge badge-danger badge-pill">2</span>
                         </a>
                         <input type="text"  id="ids-notifications" value="" hidden>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item text-center" href="">Notificações</a>
                             <div class="dropdown-divider"></div>
-                            <div id="notifications-user"></div>
+                            <div id="notifications-user">
+                            </div>
                             <div class="dropdown-divider"></div>
                             <div class="text-center dropdown-btn pb-3">
                                 <div class="btn-list">
@@ -59,7 +61,6 @@
                             </div>
                             <div class="dropdown-divider m-0"></div>
                             <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-user"></i>Perfil</a>
-                            <a class="dropdown-item" href=""><i class="dropdown-icon fe fe-edit"></i>Mods</a>
                             <a class="dropdown-item" href=""><i class="dropdown-icon fe fe-mail"></i> Notificações</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"><i class="dropdown-icon fe fe-power"></i> Sair</a>
                         </div>

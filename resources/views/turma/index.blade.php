@@ -13,21 +13,23 @@
                 <table class="table card-table table-vcenter text-nowrap">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Nome</th>
-                            <th>email</th>
+                            <th>Nome Aluno</th>
+                            <th>Nome Professor</th>
+                            <th>Disciplina</th>
+                            <th>carga horaria</th>
                             <th colspan="3">data criação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($students as $item)
+                        @foreach ($turmas as $item)
                             <tr id="tr-{{ $item->id }}">
-                                <td><span class="avatar avatar-md brround cover-image" data-image-src="{{ $item->image != null ? Route('index').'/'.'images/'.$item->image : mix('images/user.png') }}"></span></td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->nome_aluno }}</td>
+                                <td>{{ $item->nome_prof }}</td>
+                                <td>{{ $item->nome_disciplina }}</td>
+                                <td>{{ $item->carga_horaria }}</td>
                                 <td>{{ date_format($item->created_at ,'d/m/Y H:i:s') }}</td>
-                                <td><a href="{{ Route('aluno-edit-view',['id'=> $item->id]) }}"><i class="fas fa-edit"></i></i></a></td>
-                                {{-- <td><a class="delete-aluno" href="{{ Route('aluno-delete', ['id'=> $item->id]) }}" style="color: red"> <i class="fas fa-trash-alt"></i></a></td> --}}
+                                <td><a href="{{ Route('turma-edit-view',['id'=> $item->id]) }}"><i class="fas fa-edit"></i></i></a></td>
+                                <td><a class="delete-turma" href="{{ Route('turma-delete', ['id'=> $item->id]) }}" style="color: red"> <i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -36,11 +38,11 @@
             <!-- table-responsive -->
         </div>
         <div class="pt-2" >
-            {{ $students->links() }}
+            {{ $turmas->links() }}
         </div>
     </div><!-- col end -->
 </div>
 @section('script-js')
-    @include('aluno.aluno-js')
+    @include('turma.turma-js')
 @endsection
 @endsection

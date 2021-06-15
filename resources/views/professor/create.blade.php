@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-header">
         <div>
-            <h3 class="card-title">{{ isset($student) ? 'Editar' : 'Cadastro' }}</h3>
+            <h3 class="card-title">{{ isset($professor) ? 'Editar' : 'Cadastro' }}</h3>
         </div>
     </div>
     <div class="card-body">
@@ -14,12 +14,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" class="form-control not-null" name="name" value="{{ isset($student) ? $student[0]->name : '' }}" placeholder="Nome" >
+                        <input type="text" class="form-control not-null" name="name" value="{{ isset($professor) ? $professor[0]->name : '' }}" placeholder="Nome" >
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group has-success">
-                        <input type="email" class="form-control not-null" value="{{ isset($student) ? $student[0]->email : '' }}" name="email" placeholder="Email">
+                        <input type="email" class="form-control not-null" value="{{ isset($professor) ? $professor[0]->email : '' }}" name="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -48,6 +48,6 @@
     </div>
 </div>
 @section('script-js')
-    @include('aluno.aluno-js', ['id'=>$id ?? 0])
+    @include('professor.professor-js', ['id'=>$id ?? 0])
 @endsection
 @endsection
