@@ -25,7 +25,7 @@ Route::get('/', function () {
 })->name('index');
 
 /*Rotas de aluno.*/
-Route::group(['prefix'=> 'aluno'],function(){
+Route::group(['prefix'=> 'aluno', 'middleware'=>['auth']],function(){
     /*rota de listar*/
     Route::get('', [AlunoController::class, 'index'])->name('aluno-index');
     
@@ -40,7 +40,7 @@ Route::group(['prefix'=> 'aluno'],function(){
 });
 
 /*Rotas de professor.*/
-Route::group(['prefix'=> 'professor'],function(){
+Route::group(['prefix'=> 'professor','middleware'=>['auth']],function(){
     /*rota de listar*/
     Route::get('', [ProfessorController::class, 'index'])->name('professor-index');
     
@@ -55,7 +55,7 @@ Route::group(['prefix'=> 'professor'],function(){
 });
 
 /*Rotas de turma.*/
-Route::group(['prefix'=> 'turma'],function(){
+Route::group(['prefix'=> 'turma', 'middleware'=>['auth']],function(){
     /*rota de listar*/
     Route::get('', [TurmaController::class, 'index'])->name('turma-index');
     
@@ -70,7 +70,7 @@ Route::group(['prefix'=> 'turma'],function(){
 });
 
 /*Rotas de disciplina.*/
-Route::group(['prefix'=> 'disciplina'],function(){
+Route::group(['prefix'=> 'disciplina', 'middleware'=>['auth']],function(){
     /*rota de listar*/
     Route::get('', [DisciplinaController::class, 'index'])->name('disciplina-index');
     
